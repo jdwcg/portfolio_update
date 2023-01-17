@@ -58,6 +58,7 @@ function Create(props) {
     <article className="write">
       <h2>Create</h2>
       <form
+        className="form_wrap"
         onSubmit={(event) => {
           event.preventDefault();
           const title = event.target.title.value;
