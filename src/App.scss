@@ -103,6 +103,7 @@ input[type="submit"] {
   border: 1px solid #ddd;
   border-radius: 8px;
   height: 38px;
+  font-weight: 600;
   &:focus {
     border: 1px solid #999;
     outline: 4px solid #ddd;
@@ -110,6 +111,7 @@ input[type="submit"] {
 }
 input[type="button"] {
   cursor: pointer;
+  background-color: transparent;
   padding: 0 10px;
   border: 1px solid #ddd;
   border-radius: 8px;
