@@ -13,7 +13,7 @@ function Header(props) {
                   props.onChangeMode()
                }}
             >
-               Brand
+               Portfolio
             </a>
          </h1>
       </header>

@@ -11,10 +11,16 @@ textarea {
       "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
    font-size: 15px;
 }
+a {
+   text-decoration: none;
+   &:active {
+      color: #777;
+   }
+}
 input::placeholder,
 textarea::placeholder {
    font-size: 16px;
-   color: #aaa;
+   color: none;
 }
 html {
    width: 100%;
