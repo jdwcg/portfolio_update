@@ -1,123 +1,125 @@
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
-    "Pretendard Variable", Pretendard, Roboto, "Noto Sans KR", "Segoe UI",
-    "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-    sans-serif;
-  background-color: #eee;
-  width: 100%;
-  height: 100%;
+   font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard Variable", Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic",
+      "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+   background-color: #eee;
+   width: 100%;
+   height: 100%;
 }
 input,
 textarea {
-  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
-    "Pretendard Variable", Pretendard, Roboto, "Noto Sans KR", "Segoe UI",
-    "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-    sans-serif;
-  font-size: 15px;
+   font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard Variable", Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic",
+      "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+   font-size: 15px;
 }
 input::placeholder,
 textarea::placeholder {
-  font-size: 16px;
-  color: #aaa;
+   font-size: 16px;
+   color: #aaa;
 }
 html {
-  width: 100%;
-  height: 100%;
+   width: 100%;
+   height: 100%;
 }
 #root {
-  height: 100%;
+   height: 100%;
 }
 .wrapper {
-  padding: 1rem;
+   padding: 1rem;
 }
 .App {
-  height: 100%;
-  background-color: white;
-  margin: 0 auto;
-  max-width: 480px;
+   height: 100%;
+   background-color: white;
+   margin: 0 auto;
+   max-width: 480px;
 }
 .heading {
-  font-size: 2rem;
-  padding: 1rem 0;
+   font-size: 2rem;
+   padding: 1rem 0;
 }
 .heading2 {
-  font-size: 18px;
-  padding: 1rem 0;
+   font-size: 18px;
+   padding: 1rem 0;
 }
 .navi {
-  ol {
-    li {
-      list-style: decimal;
-      margin: 4px 0 4px 1rem;
-    }
-  }
+   ol {
+      li {
+         list-style: decimal;
+         margin: 4px 0 4px 1rem;
+      }
+   }
 }
 .write {
-  padding: 1rem 0;
-  form {
-    input {
-      margin: 1rem 0;
-    }
-  }
+   padding: 1rem 0;
+   form {
+      input {
+         margin: 1rem 0;
+      }
+   }
 }
 .btns {
-  margin-top: 2rem;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  a {
-    display: inline-block;
-    display: flex;
-    align-items: center;
-    border: 1px solid #ddd;
-    padding: 0 10px;
-    border-radius: 8px;
-    height: 38px;
-  }
+   margin-top: 2rem;
+   display: flex;
+   align-items: center;
+   gap: 10px;
+   a {
+      display: inline-block;
+      display: flex;
+      align-items: center;
+      border: 1px solid #ddd;
+      padding: 0 10px;
+      border-radius: 8px;
+      height: 38px;
+      &:focus {
+         border: 1px solid #999;
+         outline: 4px solid #ddd;
+      }
+   }
 }
 form {
-  display: flex;
-  flex-direction: column;
-  p {
-    input[type="text"],
-    textarea {
-      width: 100%;
-      padding: 14px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      &:focus {
-        border: 1px solid #999;
-        outline: 4px solid #ddd;
+   display: flex;
+   flex-direction: column;
+   p {
+      input[type="text"],
+      textarea {
+         width: 100%;
+         padding: 14px;
+         border: 1px solid #ddd;
+         border-radius: 8px;
+         &:focus {
+            border: 1px solid #999;
+            outline: 4px solid #ddd;
+         }
       }
-    }
-    textarea {
-      height: 100px;
-    }
-  }
+      textarea {
+         height: 100px;
+      }
+   }
 }
 
 input[type="submit"] {
-  cursor: pointer;
-  width: 100%;
-  padding: 0 10px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  height: 38px;
-  font-weight: 600;
-  &:focus {
-    border: 1px solid #999;
-    outline: 4px solid #ddd;
-  }
+   cursor: pointer;
+   width: 100%;
+   padding: 0 10px;
+   border: 1px solid #ddd;
+   border-radius: 8px;
+   height: 38px;
+   font-weight: 600;
+   background: indigo;
+   color: white;
+   &:focus {
+      border: 1px solid #999;
+      outline: 4px solid #ddd;
+   }
 }
 input[type="button"] {
-  cursor: pointer;
-  background-color: transparent;
-  padding: 0 10px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  height: 38px;
-  &:focus {
-    border: 1px solid #999;
-    outline: 4px solid #ddd;
-  }
+   cursor: pointer;
+   background-color: transparent;
+   padding: 0 10px;
+   border: 1px solid #ddd;
+   border-radius: 8px;
+   height: 38px;
+   &:focus {
+      border: 1px solid #999;
+      outline: 4px solid #ddd;
+   }
 }
