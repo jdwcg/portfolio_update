@@ -15,6 +15,12 @@ textarea {
     sans-serif;
   font-size: 15px;
 }
+a {
+  text-decoration: none;
+  &:active {
+    color: #777;
+  }
+}
 input::placeholder,
 textarea::placeholder {
   width: 100%;
@@ -74,13 +80,16 @@ html {
     padding: 0 10px;
     border-radius: 8px;
     height: 38px;
+    &:focus {
+      border: 1px solid #999;
+      outline: 4px solid #ddd;
+    }
   }
 }
 form {
   display: flex;
   flex-direction: column;
 }
-
 input[type="text"],
 textarea {
   width: 100%;
