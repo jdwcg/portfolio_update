@@ -17,6 +17,7 @@ textarea {
 }
 input::placeholder,
 textarea::placeholder {
+  width: 100%;
   font-size: 16px;
   color: #aaa;
 }
@@ -78,46 +79,9 @@ html {
 form {
   display: flex;
   flex-direction: column;
-  p {
-    input[type="text"],
-    textarea {
-      width: 100%;
-      padding: 14px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      &:focus {
-        border: 1px solid #999;
-        outline: 4px solid #ddd;
-      }
-    }
-    textarea {
-      height: 100px;
-    }
-  }
 }
 
-input[type="submit"] {
-  cursor: pointer;
+input[type="text"],
+textarea {
   width: 100%;
-  padding: 0 10px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  height: 38px;
-  font-weight: 600;
-  &:focus {
-    border: 1px solid #999;
-    outline: 4px solid #ddd;
-  }
-}
-input[type="button"] {
-  cursor: pointer;
-  background-color: transparent;
-  padding: 0 10px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  height: 38px;
-  &:focus {
-    border: 1px solid #999;
-    outline: 4px solid #ddd;
-  }
 }

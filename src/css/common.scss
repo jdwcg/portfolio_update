@@ -1,0 +1,242 @@
+// 디폴트
+
+html,
+body {
+  font-family: "Pretendard Variable", Pretendard, -apple-system,
+    BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
+    "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  width: 100%;
+  height: 100%;
+}
+$main900: #581c87;
+$main800: #6b21a8;
+$main700: #7e22ce;
+$main600: #9333ea;
+$main500: #a855f7;
+$main300: #c084fc;
+$main300: #d8b4fe;
+$main200: #e9d5ff;
+$main100: #f2e5ff;
+$fz: 16px;
+a,
+a:visited,
+a:active {
+  text-decoration: none;
+  color: inherit;
+}
+a.link_btn {
+  &:focus {
+    transition: 0.2s ease-out;
+    border: 1px solid $main300;
+    outline: 4px solid $main200;
+  }
+}
+.btn_link,
+button,
+input[type="text"],
+input[type="submit"],
+input[type="button"] {
+  min-width: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid #ddd;
+  padding: 0 14px;
+  height: 38px;
+  border-radius: 8px;
+  font-size: $fz;
+  &:focus {
+    transition: 0.2s ease-out;
+    border: 1px solid $main300;
+    outline: 4px solid $main200;
+  }
+}
+textarea,
+input::placeholder {
+  font-size: $fz;
+  font-family: "Pretendard Variable", Pretendard, -apple-system,
+    BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
+    "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+textarea {
+  border: 1px solid #ddd;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: $fz;
+  resize: none;
+  &:focus {
+    transition: 0.2s ease-out;
+    border: 1px solid $main300;
+    outline: 4px solid $main200;
+  }
+}
+
+/* Base for label styling */
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+  position: absolute;
+  left: 0;
+  opacity: 0.01;
+}
+[type="checkbox"]:not(:checked) + label,
+[type="checkbox"]:checked + label {
+  position: relative;
+  padding-left: 1.8em;
+  font-size: 1.05em;
+  cursor: pointer;
+}
+
+/* checkbox aspect */
+[type="checkbox"]:not(:checked) + label:before,
+[type="checkbox"]:checked + label:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0.9rem;
+  height: 0.9rem;
+  border: 0.155rem solid $main500;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 0 rgba(203, 34, 237, 0.2);
+  -webkit-transition: all 0.275s;
+  transition: all 0.275s;
+}
+
+// 체크박스 start
+/* checked mark aspect */
+[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 5px;
+
+  line-height: 0;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  background: url("../assets/imgs/check.svg") no-repeat;
+  width: 100%;
+  height: 100%;
+}
+
+/* checked mark aspect changes */
+[type="checkbox"]:not(:checked) + label:after {
+  opacity: 0;
+}
+
+[type="checkbox"]:checked + label:after {
+  opacity: 1;
+  -webkit-transform: scale(1) rotate(0);
+  transform: scale(1) rotate(0);
+}
+
+/* Disabled checkbox */
+[type="checkbox"]:disabled:not(:checked) + label:before,
+[type="checkbox"]:disabled:checked + label:before {
+  box-shadow: none;
+  border-color: #bbb;
+  background-color: #e9e9e9;
+}
+
+[type="checkbox"]:disabled:checked + label:after {
+  color: #777;
+}
+
+[type="checkbox"]:disabled + label {
+  color: #aaa;
+}
+
+/* Accessibility */
+[type="checkbox"]:checked:focus + label:before,
+[type="checkbox"]:not(:checked):focus + label:before {
+  box-shadow: inset 0 0px 0px rgba($color: $main900, $alpha: 0.1),
+    0 0 0 4px rgba($color: $main900, $alpha: 0.2);
+}
+
+// 체크박스END
+
+// 라디오버튼
+
+$white: #fff;
+
+input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  + .radio-label {
+    &:before {
+      content: "";
+      background: $white;
+      border-radius: 100%;
+      border: 2px solid darken($white, 25%);
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      position: relative;
+      top: 0;
+      margin-right: 1em;
+      vertical-align: top;
+      cursor: pointer;
+      text-align: center;
+      transition: all 250ms ease;
+    }
+  }
+  &:checked {
+    + .radio-label {
+      &:before {
+        background-color: $main800;
+        box-shadow: inset 0 0 0 3px $white;
+        border: 2px solid $main700;
+      }
+    }
+  }
+  &:focus {
+    + .radio-label {
+      &:before {
+        outline: none;
+        border-color: $main800;
+      }
+    }
+  }
+  &:disabled {
+    + .radio-label {
+      &:before {
+        box-shadow: inset 0 0 0 4px $white;
+        border-color: darken($white, 25%);
+        background: darken($white, 25%);
+      }
+    }
+  }
+  + .radio-label {
+    &:empty {
+      &:before {
+        margin-right: 0;
+      }
+    }
+  }
+}
+input[type="radio"]:focus {
+  box-shadow: inset 0 0px 0px rgba($color: $main900, $alpha: 0.1),
+    0 0 0 4px rgba($color: $main900, $alpha: 0.2);
+}
+// 커스텀
+
+.btns {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.radios {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  .radio {
+    label {
+      display: flex;
+      align-items: center;
+    }
+  }
+}

@@ -1,4 +1,5 @@
-import "./reset.scss";
+import "./css/reset.scss";
+import "./css/common.scss";
 import "./App.scss";
 import { useState } from "react";
 
@@ -150,6 +151,7 @@ function App() {
       <>
         <li>
           <a
+            className="link_btn"
             href={"/update" + id}
             onClick={(event) => {
               event.preventDefault();
@@ -162,7 +164,7 @@ function App() {
         <li>
           <input
             type="button"
-            value="Delect"
+            value="Delete"
             onClick={() => {
               const newTopics = [];
               for (let i = 0; i < topics.length; i++) {
@@ -239,6 +241,7 @@ function App() {
         <ul className="btns">
           <li>
             <a
+              className="link_btn"
               href="/create"
               onClick={(event) => {
                 event.preventDefault();
