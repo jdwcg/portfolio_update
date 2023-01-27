@@ -80,10 +80,6 @@ html {
     padding: 0 10px;
     border-radius: 8px;
     height: 38px;
-    &:focus {
-      border: 1px solid #999;
-      outline: 4px solid #ddd;
-    }
   }
 }
 form {

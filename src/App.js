@@ -4,147 +4,146 @@ import "./App.scss";
 import { useState } from "react";
 
 function Header(props) {
-   return (
-      <header>
-         <h1 className="heading">
-            <a
-               href="/"
-               onClick={(event) => {
-                  event.preventDefault()
-                  props.onChangeMode()
-               }}
-            >
-               Portfolio
-            </a>
-         </h1>
-      </header>
-   )
+  return (
+    <header>
+      <h1 className="heading">
+        <a
+          href="/"
+          onClick={(event) => {
+            event.preventDefault();
+            props.onChangeMode();
+          }}
+        >
+          Portfolio
+        </a>
+      </h1>
+    </header>
+  );
 }
 
 function Article(props) {
-   return (
-      <article className="article">
-         <h2 className="heading2">{props.title}</h2>
-         <p>{props.body}</p>
-      </article>
-   )
+  return (
+    <article className="article">
+      <h2 className="heading2">{props.title}</h2>
+      <p>{props.body}</p>
+    </article>
+  );
 }
 function Nav(props) {
-   const lis = []
-   for (let i = 0; i < props.topics.length; i++) {
-      let t = props.topics[i]
-      lis.push(
-         <li key={t.id}>
-            <a
-               id={t.id}
-               href={"/read/" + t.id}
-               onClick={(event) => {
-                  event.preventDefault()
-                  props.onChangeMode(Number(event.target.id))
-               }}
-            >
-               {t.title}
-            </a>
-         </li>
-      )
-   }
-   return (
-      <nav className="navi">
-         <ol>{lis}</ol>
-      </nav>
-   )
+  const lis = [];
+  for (let i = 0; i < props.topics.length; i++) {
+    let t = props.topics[i];
+    lis.push(
+      <li key={t.id}>
+        <a
+          id={t.id}
+          href={"/read/" + t.id}
+          onClick={(event) => {
+            event.preventDefault();
+            props.onChangeMode(Number(event.target.id));
+          }}
+        >
+          {t.title}
+        </a>
+      </li>
+    );
+  }
+  return (
+    <nav className="navi">
+      <ol>{lis}</ol>
+    </nav>
+  );
 }
 function Create(props) {
-   return (
-      <article className="write">
-         <h2>Create</h2>
-         <form
-            className="form_wrap"
-            onSubmit={(event) => {
-               event.preventDefault()
-               const title = event.target.title.value
-               const body = event.target.body.value
-               props.onCreate(title, body)
-            }}
-         >
-            <p>
-               <input type="text" name="title" placeholder="title" />
-            </p>
-            <p>
-               <textarea name="body" placeholder="body"></textarea>
-            </p>
-            <p>
-               <input type="submit" value="Create" />
-            </p>
-         </form>
-      </article>
-   )
+  return (
+    <article className="write">
+      <h2>Create</h2>
+      <form
+        className="form_wrap"
+        onSubmit={(event) => {
+          event.preventDefault();
+          const title = event.target.title.value;
+          const body = event.target.body.value;
+          props.onCreate(title, body);
+        }}
+      >
+        <p>
+          <input type="text" name="title" placeholder="title" />
+        </p>
+        <p>
+          <textarea name="body" placeholder="body"></textarea>
+        </p>
+        <p>
+          <input type="submit" value="Create" />
+        </p>
+      </form>
+    </article>
+  );
 }
 function Update(props) {
-   const [title, setTitle] = useState(props.title)
-   const [body, setBody] = useState(props.title)
-   return (
-      <article className="write">
-         <h2>Update</h2>
-         <form
-            onSubmit={(event) => {
-               event.preventDefault()
-               const title = event.target.title.value
-               const body = event.target.body.value
-               props.onUpdate(title, body)
+  const [title, setTitle] = useState(props.title);
+  const [body, setBody] = useState(props.title);
+  return (
+    <article className="write">
+      <h2>Update</h2>
+      <form
+        onSubmit={(event) => {
+          event.preventDefault();
+          const title = event.target.title.value;
+          const body = event.target.body.value;
+          props.onUpdate(title, body);
+        }}
+      >
+        <p>
+          <input
+            type="text"
+            name="title"
+            placeholder="title"
+            value={title}
+            onChange={(event) => {
+              console.log(event.target.value);
+              setTitle(event.target.value);
             }}
-         >
-            <p>
-               <input
-                  type="text"
-                  name="title"
-                  placeholder="title"
-                  value={title}
-                  onChange={(event) => {
-                     console.log(event.target.value)
-                     setTitle(event.target.value)
-                  }}
-               />
-            </p>
-            <p>
-               <textarea
-                  name="body"
-                  placeholder="body"
-                  value={body}
-                  onChange={(event) => {
-                     console.log(event.target.value)
-                     setBody(event.target.value)
-                  }}
-               ></textarea>
-            </p>
-            <p>
-               <input type="submit" value="Update" />
-            </p>
-         </form>
-      </article>
-   )
+          />
+        </p>
+        <p>
+          <textarea
+            name="body"
+            placeholder="body"
+            value={body}
+            onChange={(event) => {
+              console.log(event.target.value);
+              setBody(event.target.value);
+            }}
+          ></textarea>
+        </p>
+        <p>
+          <input type="submit" value="Update" />
+        </p>
+      </form>
+    </article>
+  );
 }
 function App() {
-   const [mode, setMode] = useState("WELCOME")
-   const [id, setId] = useState(null)
-   const [nextId, setNextID] = useState(4)
-   const [topics, setTopics] = useState([
-      { id: 1, title: "html", body: "html is..." },
-      { id: 2, title: "css", body: "css is..." },
-      { id: 3, title: "javaScript", body: "javaScript is..." },
-   ])
-   let content = null
-   let contextControl = null
-   if (mode === "WELCOME") {
-      content = <Article title="welcome" body="Hello, WEB"></Article>
-   } else if (mode === "READ") {
-      let title,
-         body = null
-      for (let i = 0; i < topics.length; i++) {
-         if (topics[i].id === id) {
-            title = topics[i].title
-            body = topics[i].body
-         }
+  const [mode, setMode] = useState("WELCOME");
+  const [id, setId] = useState(null);
+  const [nextId, setNextID] = useState(4);
+  const [topics, setTopics] = useState([
+    { id: 1, title: "html", body: "html is..." },
+    { id: 2, title: "css", body: "css is..." },
+    { id: 3, title: "javaScript", body: "javaScript is..." },
+  ]);
+  let content = null;
+  let contextControl = null;
+  if (mode === "WELCOME") {
+    content = <Article title="welcome" body="Hello, WEB"></Article>;
+  } else if (mode === "READ") {
+    let title,
+      body = null;
+    for (let i = 0; i < topics.length; i++) {
+      if (topics[i].id === id) {
+        title = topics[i].title;
+        body = topics[i].body;
       }
     }
     content = <Article title={title} body={body}></Article>;
@@ -152,7 +151,7 @@ function App() {
       <>
         <li>
           <a
-          className="link_btn"
+            className="link_btn"
             href={"/update" + id}
             onClick={(event) => {
               event.preventDefault();
@@ -165,7 +164,7 @@ function App() {
         <li>
           <input
             type="button"
-            value="Delect"
+            value="Delete"
             onClick={() => {
               const newTopics = [];
               for (let i = 0; i < topics.length; i++) {
@@ -242,7 +241,7 @@ function App() {
         <ul className="btns">
           <li>
             <a
-            className="link_btn"
+              className="link_btn"
               href="/create"
               onClick={(event) => {
                 event.preventDefault();
@@ -259,4 +258,4 @@ function App() {
   );
 }
 
-export default App
+export default App;
