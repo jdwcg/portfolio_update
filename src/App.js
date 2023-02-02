@@ -14,7 +14,7 @@ function Header(props) {
             props.onChangeMode();
           }}
         >
-          Portfolio
+          CRUD
         </a>
       </h1>
     </header>
